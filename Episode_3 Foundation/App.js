@@ -13,7 +13,7 @@ import ReactDOM from "react-dom/client";
 
 const jsxHeading = (
   <h1 id="heading" className="head">
-    Namaste React using JSX🚀
+    Namaste React using JSX 🚀
   </h1>
 );
 
