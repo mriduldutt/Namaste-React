@@ -32,19 +32,28 @@
     border: 1px solid red;
 }
 
+.restraunt-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .restaurant-card{
     padding: 5px;
     width: 200px;
+    margin: 5px;
     /* height: 300px; */
 }
 
+.restaurant-card img{
+    height: 200px; 
+}
 .restaurant-card:hover{
     border: 1px solid black;
     cursor: pointer;
 }
 
 .search{
-    padding: 30px;
+    padding: 20px;
 }
 
 .res-logo{
