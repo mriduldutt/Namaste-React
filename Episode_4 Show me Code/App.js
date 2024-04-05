@@ -72,6 +72,7 @@ const RestaurantCard = (props) => {
 };
 
 
+
 //Data has been come from API (in json format)
 const resList = [
   {
@@ -1949,16 +1950,24 @@ const Body = () => {
         {/* <RestaurantCard resname="Restraunt Name" cusines="Restraunt Cusines"/> */}
         {/* <RestaurantCard resData = {resList[0]}/> */}
         
-        {
+        {/* {
           resList.map((resData) => (
           <RestaurantCard key={resData.info.id} resData = {resData}/>
           ))
-        }
+        } */}
         
+        {
+          resList.map((resData)=>{
+            return (<RestaurantCard key={resData.info.id} resData = {resData}/>);
+          })
+        }
       </div>
     </div>
   );
 };
+
+
+
 
 const AppLayout = () => {
   return (
