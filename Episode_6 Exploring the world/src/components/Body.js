@@ -10,8 +10,12 @@ const Body = () => {
   
   // Local State Variable - Super Powerful Variable
    const [listofRestraunts, setListofRestraunts] = useState([]);
+   const [filteredRestraunts, setFilteredRestraunts] = useState([]);
 
-  // // Normal JS Variable
+   const [searchText, setSearchText] = useState("");
+
+
+  // // Normal JS Variablecrea
   // let listofRestrauntsjs = [
   //   {
   //     "info": {
@@ -35,46 +39,67 @@ const Body = () => {
   //   }
   // ]; 
 
+
+
+
+  // Filter logic
+
+  const filterlogic = () => {
+    const List = filteredRestraunts.filter((resData) => resData.info.avgRating >= 4.3);
+    setFilteredRestraunts(List);
+  }
+
+
+  useEffect(() => {
+    // console.log("listofRestraunts",listofRestraunts);
+     fetchData();
+  },[]);
+
+
   const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     // console.log(json);
-    //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-   
-    setListofRestraunts(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    //console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);   
+    setListofRestraunts(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestraunts(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
-  useEffect(() => {
-    // console.log("listofRestraunts",listofRestraunts);
-     fetchData();
-  },[])
 
 
-
-// it will show because aPI getting time to fetch data
+  // Conditional Rendering - it will show because aPI getting time to fetch data
+  /*
   if(listofRestraunts.length === 0){
     return (
       <Shimmer/>
     )
   }
+  */
 
+  // Filter the restraunt cards and update the UI
+  //SearchText
+  const BtnSearch = () =>{
+    console.log(searchText);
+    const filteredRestraunts = listofRestraunts.filter((resData) => resData.info.name.toLowerCase().includes(searchText.toLowerCase()));
+    setFilteredRestraunts(filteredRestraunts);
+  }
+  
 
-  return (
+  return listofRestraunts.length === 0 ? <Shimmer/> :(
       <div className="body">
         <div className="filter">
-          <button className="filter-btn" onClick={() => {
-            //Filter Logic here
-            const filteredList = listofRestraunts.filter((resData) => resData.info.avgRating > 4.4)
-
-            setListofRestraunts(filteredList)
-           }}>Top Rated Restraunts</button>
-  
+          <div className="search">
+          <input type="text" name="search-box" className="search-box"  value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}/>
+            <button onClick={BtnSearch} className="searchBtn">Search</button>
+          </div>
+         <button className="filter-btn" onClick={filterlogic}>Top Rated Restraunts</button>
         </div>
         <div className="restraunt-container">
           {
-            listofRestraunts.map((resData) => (
+            filteredRestraunts.map((resData) => (
             <RestaurantCard key={resData.info.id} resData = {resData}/>
             ))
           }
