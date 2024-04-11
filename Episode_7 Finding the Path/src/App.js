@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
+import RestrauntMenu1 from "./components/RestrauntMenu1";
 
 // const stylecards = {
 //   backgroundColor: "#f0f0f0",

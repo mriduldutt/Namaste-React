@@ -8,4 +8,4 @@ export const LOGO_URL =
 
 
 export const MENU_API = 
-"https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6394246&lng=77.3109035&restaurantId=";
+"https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6465998&lng=77.3395938&restaurantId=";
