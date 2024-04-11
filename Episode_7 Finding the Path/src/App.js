@@ -9,15 +9,6 @@ import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
 import RestrauntMenu1 from "./components/RestrauntMenu1";
 
-// const stylecards = {
-//   backgroundColor: "#f0f0f0",
-// };
-
-
-
-
-
-
 
 
 
@@ -54,7 +45,7 @@ const appRouter= createBrowserRouter([
       },
       {
         path:"/restraunts/:resID",  
-        element: <RestrauntMenu/>
+        element: <RestrauntMenu1/>
       }
     ]
   },
