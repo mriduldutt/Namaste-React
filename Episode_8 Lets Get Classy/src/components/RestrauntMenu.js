@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
-import { useParams } from "react-router-dom";
+import { useParams, useLoaderData } from "react-router-dom";
 import { MENU_API } from "../utils/constant";
 
 const RestrauntMenu = () => {
   const [resInfo, setResInfo] = useState(null);
+  const  json1 = useLoaderData();
+  console.log("sj: ",json1);
+
 
   const {resID} = useParams();
   console.log(resID);
@@ -55,3 +58,10 @@ const RestrauntMenu = () => {
 };
 
 export default RestrauntMenu;
+
+
+// export const LoaderfromMenu = async () => {
+//   const data = await fetch(MENU_API+resID);
+//   const json = await data.json();
+//   return json.data;
+// }
