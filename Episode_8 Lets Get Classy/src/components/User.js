@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
  const User = (props) => {
@@ -9,6 +9,18 @@ import { useState } from "react";
   //Create a dummy Hook
   const [count,setCount] = useState(0);
   const [count2,setCount2] = useState(1);
+  
+  useEffect(() => {
+    //Api Calls
+
+    //unmounting in functional component
+    return () => {
+      
+    }
+  },[count]);
+
+
+  
   return(
     <div className="userCard">
           <h1>Count : {count} , {count2}</h1>
