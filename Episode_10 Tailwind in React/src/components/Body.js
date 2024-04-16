@@ -71,8 +71,8 @@ if(onlineStatus === false){
   return listofRestraunts.length === 0 ? <Shimmer/> :(
       <div className="body">
         <div className="filter">
-          <div className="search">
-          <input type="text" name="search-box" className="search-box"  value={searchText}
+          <div className="search m-4 p-4">
+          <input type="text" name="search-box" className="border border-solid border-black"  value={searchText}
             onChange={(e) => setSearchText(e.target.value)}/>
             <button onClick={BtnSearch} className="searchBtn">Search</button>
           </div>
