@@ -53,7 +53,7 @@ class UserClass extends React.Component {
     const {userInfo} = this.state;
 
     return (
-      <div className="userCard">
+      <div className="userCard m-4 p-4 bg-grey-50 rounded-lg">
         <img src = {userInfo.avatar_url}/>
         <h2>Name : {userInfo.name}</h2>
         <h3>Location : {userInfo.location}</h3>
