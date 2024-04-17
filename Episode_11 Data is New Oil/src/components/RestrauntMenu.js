@@ -34,6 +34,7 @@ const RestrauntMenu = () => {
     // console.log(categories);
   
     return (
+      
     <div className="text-center">
       <h1 className="font-bold my-6 text-2xl">{name}</h1>
       <p className="font-bold text-lg">
@@ -50,14 +51,15 @@ const RestrauntMenu = () => {
           </li>);
         })} */}
       </ul>
+      <hr className="w-6/12 mx-auto"/>
 
       {/* Categories accordion  */}
 
       {categories?.map((category) => (
-         <RestrauntCategories data= {category?.card?.card}/>
+         <RestrauntCategories key={category?.card?.card?.title} data= {category?.card?.card}/>
         ))}
 
-      
+
     </div>
   );
 };
