@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -11,6 +11,9 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
 
+  // Higher order Component take a component and returns a new component
+  const RestrauntCardVeg = withVegLabel(RestaurantCard);
+
   // Filter logic
 
   const filterlogic = () => {
@@ -20,8 +23,8 @@ const Body = () => {
     setFilteredRestraunts(List);
   };
 
+  console.log("listofRestraunts", listofRestraunts);
   useEffect(() => {
-    // console.log("listofRestraunts",listofRestraunts);
     fetchData();
   }, []);
 
@@ -72,7 +75,6 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-
       <div className="filter flex">
         <div className="search m-4 p-4 ">
           <input
@@ -83,23 +85,36 @@ const Body = () => {
             onChange={(e) => setSearchText(e.target.value)}
           />
 
-          <button className="bg-green-100 px-4 py-2 m-4 rounded-lg" onClick={BtnSearch}>
+          <button
+            className="bg-green-100 px-4 py-2 m-4 rounded-lg"
+            onClick={BtnSearch}
+          >
             Search
           </button>
         </div>
 
         <div className="search m-4 p-4 flex items-center">
-          <button className="bg-green-100 px-4 py-2 rounded-lg" onClick={filterlogic}>
+          <button
+            className="bg-green-100 px-4 py-2 rounded-lg"
+            onClick={filterlogic}
+          >
             Top Rated Restraunts
           </button>
         </div>
       </div>
 
-
       <div className="flex flex-wrap">
         {filteredRestraunts.map((resData) => (
           <Link key={resData.info.id} to={`/restraunts/${resData.info.id}`}>
-            <RestaurantCard resData={resData} />
+          
+          {/* IF VEG IS TRUE THEN RENDER VEG LABEL  ELSE WITH OUT LABEL   */}
+            {resData.info.veg ? (
+              <RestrauntCardVeg resData={resData} />
+            ) : (
+              <RestaurantCard resData={resData} />
+            )}
+
+
           </Link>
         ))}
       </div>
