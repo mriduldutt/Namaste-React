@@ -7,7 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
-import RestrauntMenu1 from "./components/RestrauntMenu1";
+
 
 
 
@@ -45,7 +45,7 @@ const appRouter= createBrowserRouter([
       },
       {
         path:"/restraunts/:resID",  
-        element: <RestrauntMenu1/>
+        element: <RestrauntMenu/>
       }
     ]
   },
