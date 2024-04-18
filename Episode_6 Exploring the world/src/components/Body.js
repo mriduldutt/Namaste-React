@@ -82,7 +82,7 @@ const Body = () => {
   // Filter the restraunt cards and update the UI
   //SearchText
   const BtnSearch = () =>{
-    console.log(searchText);
+    // console.log(searchText);
     const filteredRestraunts = listofRestraunts.filter((resData) => resData.info.name.toLowerCase().includes(searchText.toLowerCase()));
     setFilteredRestraunts(filteredRestraunts);
   }
