@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import CategoriesItemList from './CategoriesItemList';
 
 const RestrauntCategories = (props) => {
-    const {data} = props;
+    const {data, showItems, setShowIndex} = props;
 
-    const [showItem, setShowItem] = useState(false);
-    
+    // Give Power to Parent Component: RestaurantList
+    // const [showItem, setShowItem] = useState(false);
+  
     const handle_Hide_Show = () => {
-      setShowItem(!showItem);
+      // setShowItem(!showItem);
+      setShowIndex();
     }
 
 
@@ -24,7 +26,7 @@ const RestrauntCategories = (props) => {
         
 
 
-       { showItem && <CategoriesItemList items={data.itemCards}/>}
+       { showItems && <CategoriesItemList items={data.itemCards}/>}
       </div>
 
       <hr className='w-6/12 m-auto h-2 border-none  bg-gray-200'/>
