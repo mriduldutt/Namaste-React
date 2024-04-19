@@ -14,6 +14,15 @@ import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Shimmer from "./components/Shimmer";
 import userContext from "./utils/userContext";
+import {Provider} from "react-redux"; 
+import appReduxStore from "./utils/appReduxStore";
+import Cart from "./components/Cart";
+
+
+
+
+
+
 
 // Chunking
 // Code splitting
@@ -35,6 +44,8 @@ const AppLayout = () => {
   }, []);
 
   return (
+
+  <Provider store={appReduxStore}>
     <userContext.Provider value={{ loggedInUser: userInfo }}>
       <div className="app">
         <Header />
@@ -43,6 +54,7 @@ const AppLayout = () => {
         {/* <Footer /> */}
       </div>
     </userContext.Provider>
+  </Provider>
   );
 };
 
@@ -68,6 +80,7 @@ const router = createBrowserRouter(
         }
       />
       <Route path="restraunts/:resID" element={<RestrauntMenu />} />
+      <Route path="cart" element={<Cart />} />
     </Route>
   )
 );
