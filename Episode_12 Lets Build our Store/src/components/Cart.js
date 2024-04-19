@@ -5,6 +5,7 @@ import { clearCart } from '../utils/cartReduxStoreSlice';
 
 const Cart = () => {
   
+  //only subscribe the specific portion of store
   const cartItems = useSelector((store)=> store.cart.items);
   
   const dispatch = useDispatch();

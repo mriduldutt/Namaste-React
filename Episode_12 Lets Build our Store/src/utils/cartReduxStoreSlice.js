@@ -9,6 +9,12 @@ const cartReduxStoreSlice = createSlice({
     reducers : {
         addItem: (state, action) =>{
             //mutating the state here
+            // Vanilla redux way ==>  Dont mutate the state , returing complusory
+            // const newState = [...state]
+            // newState.items.push(action.payload)
+            // return newState
+
+            // Redux toolkit way ==>  Mutate the state
               state.items.push(action.payload)
         },
         removeItem: (state,action) => {
