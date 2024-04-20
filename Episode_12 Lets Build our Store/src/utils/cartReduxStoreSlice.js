@@ -1,10 +1,10 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice, nanoid,current } from "@reduxjs/toolkit";
 
 
 const cartReduxStoreSlice = createSlice({
     name : 'cart',
     initialState : {
-        items:[]
+        items: JSON.parse(localStorage.getItem("cart")) || [],
     },
     reducers : {
         addItem: (state, action) =>{
@@ -21,6 +21,9 @@ const cartReduxStoreSlice = createSlice({
                 ...action.payload
             }
             state.items.push(actiondata);
+
+            const data = current(state.items);
+            // localStorage.setItem("cart", JSON.stringify(data));
         },
         removeItem: (state,action) => {
             //   state.items.pop();
@@ -28,6 +31,8 @@ const cartReduxStoreSlice = createSlice({
                 return  items.id !==action.payload;
             })
             state.items = actiondata;
+
+            // localStorage.removeItem("cart");
         },
         clearCart: (state,action) => {
             state.items.length = 0;
