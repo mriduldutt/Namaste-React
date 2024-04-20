@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 
 const cartReduxStoreSlice = createSlice({
@@ -15,7 +15,12 @@ const cartReduxStoreSlice = createSlice({
             // return newState
 
             // Redux toolkit way ==>  Mutate the state
-              state.items.push(action.payload)
+            //   state.items.push(action.payload)
+            const actiondata = {
+                id:nanoid(),
+                ...action.payload
+            }
+            state.items.push(actiondata);
         },
         removeItem: (state,action) => {
               state.items.pop();
