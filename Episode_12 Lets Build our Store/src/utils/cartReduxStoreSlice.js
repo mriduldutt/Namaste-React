@@ -23,7 +23,11 @@ const cartReduxStoreSlice = createSlice({
             state.items.push(actiondata);
         },
         removeItem: (state,action) => {
-              state.items.pop();
+            //   state.items.pop();
+            const actiondata = state.items.filter((items)=>{
+                return  items.id !==action.payload;
+            })
+            state.items = actiondata;
         },
         clearCart: (state,action) => {
             state.items.length = 0;
