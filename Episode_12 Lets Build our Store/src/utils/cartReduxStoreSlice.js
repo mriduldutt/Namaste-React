@@ -22,7 +22,7 @@ const cartReduxStoreSlice = createSlice({
             }
             state.items.push(actiondata);
 
-            const data = current(state.items);
+            // const data = current(state.items);
             // localStorage.setItem("cart", JSON.stringify(data));
         },
         removeItem: (state,action) => {
