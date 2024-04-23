@@ -87,7 +87,7 @@ const Body = () => {
     <div className="body">
       <div className="filter flex">
         <div className="search m-4 p-4 ">
-          <input
+          <input data-testid="search-box"
             type="text"
             name="search-box"
             className="border border-solid border-black"

@@ -15,7 +15,7 @@ const CategoriesItemList = (props) => {
   return (
     <div>
       {items.map((item) => (
-        <div
+        <div data-testid="menu-item"
           key={item?.card?.info?.id}
           className="p-2 m-2 border-b-2 border-grey-200 shadow-lg text-left flex justify-between"
         >
