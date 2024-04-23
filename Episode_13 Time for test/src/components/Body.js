@@ -16,7 +16,6 @@ const Body = () => {
   const RestrauntCardVeg = withVegLabel(RestaurantCard);
 
   // Filter logic
-
   const filterlogic = () => {
     const List = filteredRestraunts.filter(
       (resData) => resData.info.avgRating >= 4.3
@@ -47,7 +46,7 @@ const Body = () => {
       }
 
       const resData = await checkJsonData(json);
-
+      
       setListofRestraunts(resData);
       setFilteredRestraunts(resData);
     } catch (err) {
