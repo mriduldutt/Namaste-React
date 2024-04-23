@@ -3,6 +3,7 @@ import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { RES_URL } from "../utils/constant";
 
 const Body = () => {
   // Local State Variable - Super Powerful Variable
@@ -29,18 +30,29 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const RES_URL =
-      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6465998&lng=77.3395938&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-    const data = await fetch(RES_URL);
+    try {
+      const data = await fetch(RES_URL);
+      const json = await data.json();
 
-    const json = await data.json();
-    // console.log(json);
-    setListofRestraunts(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestraunts(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+      async function checkJsonData(jsonData) {
+        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+          let checkData =
+            jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
+
+          if (checkData) {
+            return checkData;
+          }
+        }
+      }
+
+      const resData = await checkJsonData(json);
+
+      setListofRestraunts(resData);
+      setFilteredRestraunts(resData);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // Conditional Rendering - it will show because aPI getting time to fetch data
@@ -99,23 +111,18 @@ const Body = () => {
           >
             Top Rated Restraunts
           </button>
-
-          
         </div>
       </div>
 
       <div className="flex flex-wrap">
         {filteredRestraunts.map((resData) => (
           <Link key={resData.info.id} to={`/restraunts/${resData.info.id}`}>
-          
-          {/* IF VEG IS TRUE THEN RENDER VEG LABEL  ELSE WITH OUT LABEL   */}
+            {/* IF VEG IS TRUE THEN RENDER VEG LABEL  ELSE WITH OUT LABEL   */}
             {resData.info.veg ? (
               <RestrauntCardVeg resData={resData} />
             ) : (
               <RestaurantCard resData={resData} />
             )}
-
-
           </Link>
         ))}
       </div>
