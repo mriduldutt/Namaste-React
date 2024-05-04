@@ -35,7 +35,7 @@ const HeadingComponent = () => {
     {number}
     {jsxHeading}
     <h1 id="heading" className="head">
-      Namaste React Functional Components using JSX🚀
+      Namaste React Functional Components using JSX 🚀
     </h1>
     </div>
   );
