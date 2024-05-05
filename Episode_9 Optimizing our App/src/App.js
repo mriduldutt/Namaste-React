@@ -24,6 +24,7 @@ const Grocery = lazy(() => import('./components/Grocery'));
 const About = lazy(() => import('./components/About'));
 
 
+
 const AppLayout = () => {
   return (
     <div className="app">
