@@ -1,7 +1,7 @@
 import { createSlice, nanoid,current } from "@reduxjs/toolkit";
 
 
-const cartReduxSlice = createSlice({
+const cartReduxStoreSlice = createSlice({
     name : 'cart',
     initialState : {
         items: JSON.parse(localStorage.getItem("cart")) || [],
@@ -51,7 +51,7 @@ const cartReduxSlice = createSlice({
 
 export const {addItem, removeItem, clearCart} = cartReduxStoreSlice.actions;
 
-export default cartReduxSlice.reducer;
+export default cartReduxStoreSlice.reducer;
 
 
 
