@@ -6,7 +6,6 @@ const useRestrauntMenu = (resID) => {
   
   const [resInfo, setResInfo] = useState(null);
     // fetch Data
-     // const  json1 = useLoaderData();
   useEffect(() => {
     fetchData();
   }, []);
@@ -20,9 +19,3 @@ const useRestrauntMenu = (resID) => {
 };
 
 export default useRestrauntMenu;
-
-// export const LoaderfromMenu = async () => {
-//   const data = await fetch(MENU_API+resID);
-//   const json = await data.json();
-//   return json.data;
-// }
