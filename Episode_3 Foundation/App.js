@@ -31,7 +31,8 @@ const number = 1000 ; //normal variable
 const HeadingComponent = () => {
   return (
     <div id ="container">
-    {TitleComponent()}
+    {/* {TitleComponent()} */}
+    <TitleComponent/>
     {number}
     {jsxHeading}
     <h1 id="heading" className="head">
