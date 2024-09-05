@@ -1961,6 +1961,7 @@ function Body () {
             return (<RestaurantCard key={resData.info.id} resData = {resData}/>);
           })
         }
+
       </div>
     </div>
   );
