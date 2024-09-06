@@ -82,7 +82,8 @@ const Body = () => {
         <div className="filter">
           <button className="filter-btn" onClick={() => {
             //Filter Logic here
-            const filteredList = listofRestraunts.filter((resData) => resData.info.avgRating > 4.4)
+            const filteredList = listofRestraunts.filter(
+              (resData) => resData.info.avgRating > 4.4)
 
             setListofRestraunts(filteredList)
            }}>Top Rated Restraunts</button>
