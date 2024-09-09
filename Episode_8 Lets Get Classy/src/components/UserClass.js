@@ -32,11 +32,11 @@ class UserClass extends React.Component {
 
 // More than one useEffect in JS use in class like below
   componentDidUpdate(prevProps, prevState) {
-   if(this.state.count != prevState.count){
+   if(this.state.count !== prevState.count){
     // Code to execute when count changes
    }
 
-   if(this.state.count2 != prevState.count2){
+   if(this.state.count2 !== prevState.count2){
     // Code to execute when count changes
    }
   }
@@ -75,3 +75,4 @@ class UserClass extends React.Component {
 }
 
 export default UserClass;
+
