@@ -3,6 +3,7 @@ import useRestrauntMenu from "../utils/useRestrauntMenu";
 import RestrauntCategories from "./RestrauntCategories";
 import Shimmer from "./Shimmer";
 import { useParams, useLoaderData } from "react-router-dom";
+import RestrauntCategory from "./RestrauntCategory";
 
 const RestrauntMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
@@ -55,6 +56,19 @@ const RestrauntMenu = () => {
           data={category?.card?.card}
           showItems={index === showIndex ? true: false}
           setShowIndex={()=>setShowIndex(index)}
+        />
+      ))}
+
+
+      
+
+      {categories?.map((category, index) => (
+        <RestrauntCategory
+          key={category?.card?.card?.title}
+          data={category?.card?.card}
+          // showItems={index === showIndex ? true : false}
+          // setShowIndex={() => setShowIndex(index)}
+
         />
       ))}
 
