@@ -27,6 +27,7 @@ const TitleComponent = () => (
   </h1>
 );
 
+
 const number = 1000 ; //normal variable
 const HeadingComponent = () => {
   return (
