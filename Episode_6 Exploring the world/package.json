@@ -1,7 +1,7 @@
 {
-    "name": "episode_2-igniting-our-app",
+    "name": "episode_6-exploring-the-world",
     "version": "1.0.0",
-    "description": "Episode2 React",
+    "description": "Episode6 React",
     "scripts": {
       "start" : "parcel index.html",
       "build" : "parcel build index.html",

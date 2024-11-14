@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 // import resList from "../utils/mockData";
@@ -88,13 +88,13 @@ const Body = () => {
   }
   
 
+
   return listofRestraunts.length === 0 ? <Shimmer/> :(
       <div className="body">
         <div className="filter">
           <div className="search">
           <input type="text" name="search-box" className="search-box"  value={searchText}
             onChange={(e) => setSearchText(e.target.value)}/>
-            <button onClick={BtnSearch} className="searchBtn">Search</button>
           </div>
          <button className="filter-btn" onClick={filterlogic}>Top Rated Restraunts</button>
         </div>
