@@ -1,7 +1,7 @@
 {
-    "name": "episode_2-igniting-our-app",
+    "name": "episode_5-lets-get-hooked",
     "version": "1.0.0",
-    "description": "Episode2 React",
+    "description": "Episode5 React",
     "scripts": {
       "start" : "parcel index.html",
       "build" : "parcel build index.html",
