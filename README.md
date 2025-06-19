@@ -52,7 +52,7 @@ This repository serves as a personal journal of my journey through the "Namaste 
 
 
 
-Two types of Export/Import
+# Two types of Export/Import
 
 - Default Export/Import
      - export default Component/Var
