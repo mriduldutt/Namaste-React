@@ -1946,7 +1946,7 @@ function Body () {
     <div className="body">
       <div className="search">Search</div>
       <div className="restraunt-container">
-        {/* // Restraunt Card */}
+        {/* // <Restraunt Card/> */}
         {/* <RestaurantCard resname="Restraunt Name" cusines="Restraunt Cusines"/> */}
         {/* <RestaurantCard resData = {resList[0]}/> */}
         
@@ -1956,10 +1956,14 @@ function Body () {
           ))
         } */}
         
-        {
+        {/* {
           resList.map((resData)=>{
             return (<RestaurantCard key={resData.info.id} resData = {resData}/>);
           })
+        } */}
+
+        {
+          resList.map(restraunt => <RestaurantCard  key={restraunt.info.id} resData = {restraunt} />)
         }
 
 
@@ -1980,6 +1984,7 @@ const AppLayout = () => {
     </div>
   );
 };
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(jsxHeading);

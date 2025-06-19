@@ -92,6 +92,8 @@ const Body = () => {
             Top Rated Restraunts
           </button>
         </div>
+
+        
         <div className="restraunt-container">
           {/* // Restraunt Card */}
           {/* <RestaurantCard resname="Restraunt Name" cusines="Restraunt Cusines"/> */}

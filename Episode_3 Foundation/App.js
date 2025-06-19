@@ -23,7 +23,7 @@ const jsxHeading = (
 
 const TitleComponent = () => (
   <h1 id="title" className="title">
-    Namaste Title Functional Components using JSX🚀
+    Namaste React Title Components using JSX🚀
   </h1>
 );
 
@@ -31,12 +31,12 @@ const TitleComponent = () => (
 const number = 1000 ; //normal variable
 const HeadingComponent = () => {
   return (
-    <div id ="container">
+    <div id ="container" style={{border : "2px solid red"}}>
     {/* {TitleComponent()} */}
     <TitleComponent/>
     {number}
     {jsxHeading}
-    <h1 id="heading" className="head">
+    <h1 id="heading" className="head" style={{border : "2px solid green"}}>
       Namaste React Functional Components using JSX 🚀
     </h1>
     </div>
