@@ -86,7 +86,7 @@ const Body = () => {
     const filteredRestraunts = listofRestraunts.filter((resData) => resData.info.name.toLowerCase().includes(searchText.toLowerCase()));
     setFilteredRestraunts(filteredRestraunts);
   }
-  
+
 
 
   return listofRestraunts.length === 0 ? <Shimmer/> :(
@@ -95,6 +95,7 @@ const Body = () => {
           <div className="search">
           <input type="text" name="search-box" className="search-box"  value={searchText}
             onChange={(e) => setSearchText(e.target.value)}/>
+            <button className="search-btn" onClick={BtnSearch}>Search</button>
           </div>
          <button className="filter-btn" onClick={filterlogic}>Top Rated Restraunts</button>
         </div>

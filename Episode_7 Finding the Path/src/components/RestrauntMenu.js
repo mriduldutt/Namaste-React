@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constant";
+import Recomdded from "./Recomdded";
 
 const RestrauntMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -42,6 +43,7 @@ const RestrauntMenu = () => {
       <h2>Menu</h2>
       <ul>
         {/* <li>{itemCards[1]?.card?.info?.name}</li> */}
+      
         {itemCards?.map((item) => {
           return (
           <li key={item?.card?.info?.id}>
@@ -49,6 +51,11 @@ const RestrauntMenu = () => {
             {item?.card?.info?.defaultPrice / 100 || item?.card?.info?.price /100}
           </li>);
         })}
+
+        
+        {/* { itemCards.map((item)=>{
+          <Recomdded itemcard={item}/>
+        })} */}
       </ul>
     </div>
   );
