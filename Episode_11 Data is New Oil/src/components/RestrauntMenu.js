@@ -28,6 +28,11 @@ const RestrauntMenu = () => {
   // console.log(  resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
   // console.log(itemCards);
 
+  const nsCategories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.
+  filter((c) => c.card?.["card"]?.["@type"] === 
+         "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory");
+
+
   const categories =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (category) =>
@@ -35,6 +40,7 @@ const RestrauntMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
+  // console.log(nsCategories);
   // console.log(categories);
 
   return (
@@ -46,6 +52,8 @@ const RestrauntMenu = () => {
 
       <hr className="w-6/12 mx-auto" />
     
+
+       {/* Accordion Built */}
     
       {/* Categories accordion  */}
       {categories?.map((category,index) => (
@@ -59,10 +67,9 @@ const RestrauntMenu = () => {
         />
       ))}
 
-
       
 
-      {categories?.map((category, index) => (
+      {nsCategories?.map((category, index) => (
         <RestrauntCategory
           key={category?.card?.card?.title}
           data={category?.card?.card}

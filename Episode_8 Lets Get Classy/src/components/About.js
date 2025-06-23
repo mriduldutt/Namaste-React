@@ -9,26 +9,36 @@ class About extends React.Component{
   constructor(props){
      super(props);
 
-     //console.log("Parent Constructor");
+     console.log("AboutParent Constructor");
    }
 
    componentDidMount() {
-    //console.log("Parent ComponentDidMount");
+    console.log("About Parent ComponentDidMount");
     // Api calls
   }
 
    render(){
-   // console.log("Parent Render");
+
     return(
       <div>
       <h1>About Class Component</h1>
       <h2>Namaste from here! </h2>
       {/* <User name={"Akshay (Function Component) "}/> */}
       <UserClass name={"Akshay (Class Component) "} location={"Noida Class"}/>
+            
+            <br/>
+      
+      <User name={"Akshay (Function Component) "}/>
+
     </div>
     )
+
+    console.log("Parent Render");
    }
 }
+
+
+
 // const About = () => {
 //   return (
 //     <div>

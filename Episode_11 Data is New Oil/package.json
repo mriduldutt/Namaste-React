@@ -1,7 +1,7 @@
 {
     "name": "episode_11_data_is_new_oil",
     "version": "1.0.0",
-    "description": "Episode2 React",
+    "description": "Episode 11",
     "scripts": {
         "start": "parcel index.html",
         "build": "parcel build index.html",

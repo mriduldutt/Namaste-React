@@ -28,17 +28,29 @@ const RestaurantCard = (props) => {
   // Higher order component which has veg label
   // input - Restraunt Card ==> output - Restraunt Card with veg label
 
-  export const withVegLabel = (RestaurantCard) =>{
+  // export const withVegLabel = (RestaurantCard) =>{
 
-    return(props) =>{
-      return(
+  //   return(props) =>{
+  //     return(
+  //       <div>
+  //         <label className="absolute bg-green-500 text-white ml-4 p-2 rounded-lg text-sm">Veg Only</label>
+  //         <RestaurantCard {...props}/>
+  //       </div>
+  //     )
+  //   }
+  // }
+
+
+  export const withisOpenLabel = (RestaurantCard) =>{
+
+    return function(props){
+       return(
         <div>
-          <label className="absolute bg-green-500 text-white ml-4 p-2 rounded-lg text-sm">Veg Only</label>
+          <label className="absolute bg-green-500 text-white ml-4 p-2 rounded-lg text-sm">is Open</label>
           <RestaurantCard {...props}/>
         </div>
-      )
+       )
     }
   }
-
 
   export default RestaurantCard;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RestaurantCard, { withVegLabel } from "./RestaurantCard";
+import RestaurantCard, { withisOpenLabel, withVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -12,7 +12,8 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   // Higher order Component take a component and returns a new component
-  const RestrauntCardVeg = withVegLabel(RestaurantCard);
+  // const RestrauntCardVeg = withVegLabel(RestaurantCard);
+  const RestrauntCardisOpen = withisOpenLabel(RestaurantCard);
 
   // Filter logic
 
@@ -108,13 +109,22 @@ const Body = () => {
         {filteredRestraunts.map((resData) => (
           <Link key={resData.info.id} to={`/restraunts/${resData.info.id}`}>
           
-          {/* IF VEG IS TRUE THEN RENDER VEG LABEL  ELSE WITH OUT LABEL   */}
-            {resData.info.veg ? (
+          {/* IF RES IS OPEN THEN RENDER OPEN LABEL  ELSE WITH OUT LABEL   */}
+            {/* {resData.info.isOpen ? (
               <RestrauntCardVeg resData={resData} />
             ) : (
               <RestaurantCard resData={resData} />
-            )}
+            )} */}
 
+
+
+            {resData.info.isOpen == "true"? (
+              <RestaurantCard resData={resData} />
+              ) :
+              (
+                <RestrauntCardisOpen resData={resData}/>
+              )}
+        
 
           </Link>
         ))}

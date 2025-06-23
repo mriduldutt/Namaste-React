@@ -5,13 +5,19 @@ class UserClass extends React.Component {
     // Super is used to call the constructor of the parent class
     super(props);
 
-    // Initialising state
+    // Initialising state in react class component
     this.state = {
          userInfo : {
            name : "Dummy name",
            location : "Dummy location",
-           avatar_url : "https://dummy-photo.com",
-          }
+           avatar_url : "",
+          },
+          resdata:[
+            {"name":"Restraunt 1",cusines:"Restraunt 1 Cusines"},
+            {name:"Restraunt 2",cusines:"Restraunt 2 Cusines"},
+            {name:"Restraunt 3",cusines:"Restraunt 3 Cusines"}],
+          count : 0,
+          count2 : 0
     };
    console.log(this.props.name +" Child Constructor");
   }
@@ -26,6 +32,8 @@ class UserClass extends React.Component {
     this.setState({
       userInfo : json,
     })
+
+    
     
     console.log(json);
   }
@@ -43,28 +51,33 @@ class UserClass extends React.Component {
 
   componentWillUnmount() {
     
-    console.log("Component Will Unmount");
+    // console.log("Component Will Unmount");
   }
 
   render() {
+
+
     console.log(this.props.name + "Child Render");
     // destructuring props & State
     // const { name, location } = this.props;
     const {userInfo} = this.state;
+    
+    const clickBtnFunction = () => {
+            // Never directly update state variables           
+            this.setState({
+                count : this.state.count + 1,
+            });           
+    }
+    
 
     return (
       <div className="userCard">
-        {/* <h1>Count : {count} , {count2}</h1>
-        <button onClick={()=>{
-            // Never directly update state variables
-            
-            this.setState({
-                count : count + 1,
-                count2: count2 + 2,
-            });
-
-        }}>Count Increase</button> */}
+        <h1>Count : {this.state.count}</h1>
+        <button onClick={ clickBtnFunction }>Count Increase</button>
          
+
+        <h1>resdata : {this.state.resdata[0].name}</h1>
+       
         <img src = {userInfo.avatar_url}/>
         <h2>Name : {userInfo.name}</h2>
         <h3>Location : {userInfo.location}</h3>
