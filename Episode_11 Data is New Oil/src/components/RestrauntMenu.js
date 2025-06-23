@@ -4,6 +4,7 @@ import RestrauntCategories from "./RestrauntCategories";
 import Shimmer from "./Shimmer";
 import { useParams, useLoaderData } from "react-router-dom";
 import RestrauntCategory from "./RestrauntCategory";
+import Shimmy from "./Shimmy";
 
 const RestrauntMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
@@ -16,7 +17,7 @@ const RestrauntMenu = () => {
 
 
   if (resInfo === null) {
-    return <Shimmer />;
+    return <Shimmy />;
   }
 
   const { name, cuisines, avgRating, costForTwoMessage, sla } =

@@ -4,12 +4,12 @@ import { CDN_URL } from "../utils/constant";
 const ItemList = (props) => {
   const { items } = props;
 
-  console.log(items);
-  console.log(items[0]);
+//   console.log(items);
+//   console.log(items[0]);
   return (
     <div>
-      {items.map((itemee) =>
-        itemee.map((item) => (
+      {items.map((Options) =>
+        Options.map((item) => (
           <div
             key={item?.card?.info?.id}
             className="p-2 m-2 border-b-2 border-gray-200 shadow-lg text-left flex justify-between"

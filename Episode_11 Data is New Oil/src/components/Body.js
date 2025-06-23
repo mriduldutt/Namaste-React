@@ -3,6 +3,7 @@ import RestaurantCard, { withisOpenLabel, withVegLabel } from "./RestaurantCard"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import Shimmy from "./Shimmy";
 
 const Body = () => {
   // Local State Variable - Super Powerful Variable
@@ -35,12 +36,12 @@ const Body = () => {
     const data = await fetch(RES_URL);
 
     const json = await data.json();
-    // console.log(json);
+
     setListofRestraunts(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestraunts(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -72,7 +73,7 @@ const Body = () => {
   };
 
   return listofRestraunts.length === 0 ? (
-    <Shimmer />
+    <Shimmy />
   ) : (
     <div className="body">
       <div className="filter flex">

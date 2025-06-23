@@ -16,7 +16,7 @@ const RestrauntCategory = (props) => {
 
     return (
       <div className="panel">
-        <div className="w-6/12  bg-gray-50  p-4 my-4 m-auto">
+        <div className="w-6/12 p-4 my-4 m-auto">
           {/* Accordion Header */}
           <div
             className="flex justify-between cursor-pointer accordion" onClick={handle_Hide_Show}>

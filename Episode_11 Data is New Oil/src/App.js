@@ -14,6 +14,7 @@ import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
 import Shimmer from "./components/Shimmer";
 import userContext from "./utils/userContext";
+import Shimmy from "./components/Shimmy";
 
 // Chunking
 // Code splitting
@@ -53,7 +54,7 @@ const router = createBrowserRouter(
       <Route
         path="about"
         element={
-          <Suspense fallback={<Shimmer />}>
+          <Suspense fallback={<Shimmy/>}>
             <About />
           </Suspense>
         }
@@ -62,7 +63,7 @@ const router = createBrowserRouter(
       <Route
         path="grocery"
         element={
-          <Suspense fallback={<Shimmer />}>
+          <Suspense fallback={<Shimmy />}>
             <Grocery />
           </Suspense>
         }
