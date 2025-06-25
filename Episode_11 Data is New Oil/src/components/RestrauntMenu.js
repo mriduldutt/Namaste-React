@@ -12,9 +12,8 @@ const RestrauntMenu = () => {
 
   //Create a custom Hook of useRestaurantMenu , don't concern how data is fetching
   const resInfo = useRestrauntMenu(resID);
-  
-  const [showIndex, setShowIndex] = useState(null);
 
+  const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) {
     return <Shimmy />;
@@ -29,10 +28,12 @@ const RestrauntMenu = () => {
   // console.log(  resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
   // console.log(itemCards);
 
-  const nsCategories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.
-  filter((c) => c.card?.["card"]?.["@type"] === 
-         "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory");
-
+  const nsCategories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.["card"]?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
+    );
 
   const categories =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -52,23 +53,19 @@ const RestrauntMenu = () => {
       </p>
 
       <hr className="w-6/12 mx-auto" />
-    
 
-       {/* Accordion Built */}
-    
+      {/* Accordion Built */}
+
       {/* Categories accordion  */}
-      {categories?.map((category,index) => (
-       
-      //  Controlled component
-       <RestrauntCategories
+      {categories?.map((category, index) => (
+        //  Controlled component
+        <RestrauntCategories
           key={category?.card?.card?.title}
           data={category?.card?.card}
-          showItems={index === showIndex ? true: false}
-          setShowIndex={()=>setShowIndex(index)}
+          showItems={index === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(index)}
         />
       ))}
-
-      
 
       {nsCategories?.map((category, index) => (
         <RestrauntCategory
@@ -76,10 +73,8 @@ const RestrauntMenu = () => {
           data={category?.card?.card}
           // showItems={index === showIndex ? true : false}
           // setShowIndex={() => setShowIndex(index)}
-
         />
       ))}
-
     </div>
   );
 };

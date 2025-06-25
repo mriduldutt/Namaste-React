@@ -1,18 +1,18 @@
 import { createSlice, nanoid,current } from "@reduxjs/toolkit";
 
-
+const initialState = {
+        items: JSON.parse(localStorage.getItem("cart")) || [],
+}
 const cartReduxStoreSlice = createSlice({
     name : 'cart',
-    initialState : {
-        items: JSON.parse(localStorage.getItem("cart")) || [],
-    },
+    initialState ,
     reducers : {
         addItem: (state, action) =>{
-            //mutating the state here
+            
             // Vanilla redux way ==>  Dont mutate the state , returing complusory
-            // const newState = [...state]
-            // newState.items.push(action.payload)
-            // return newState
+                // const newState = [...state]
+                // newState.items.push(action.payload)
+                // return newState
 
             // Redux toolkit way ==>  Mutate the state
             //   state.items.push(action.payload)
@@ -36,6 +36,8 @@ const cartReduxStoreSlice = createSlice({
         },
         clearCart: (state,action) => {
             state.items.length = 0;
+
+            // return {items: []};
         }
     }
 

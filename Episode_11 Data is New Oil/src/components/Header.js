@@ -3,6 +3,7 @@ import {LOGO_URL}  from "../utils/constant";
 import { Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
+import themeContext from "../utils/themeContext";
 
 
 const Header = () => {
@@ -12,7 +13,9 @@ const Header = () => {
    const onlineStatus = useOnlineStatus();
 
    const {loggedInUser} = useContext(userContext);
- 
+  //  const {theme} = useContext(themeContext);
+
+
     return (
       <div className="flex justify-between bg-orange-300 shadow-lg sm:bg-yellow-200" >
         <div className="logo-container">

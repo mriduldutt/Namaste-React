@@ -12,7 +12,7 @@ const Header = () => {
    
    const onlineStatus = useOnlineStatus();
 
-   const {loggedInUser} = useContext(userContext);
+  //  const {loggedInUser} = useContext(userContext);
  
    // Subscrbing the Store using a selector
    const cartItems = useSelector((store)=> store.cart.items);
@@ -56,7 +56,6 @@ const Header = () => {
               }}>{btnNameReact}
             </button>
             
-            <li className="px-4 ">{loggedInUser}</li>
 
 
           </ul>
