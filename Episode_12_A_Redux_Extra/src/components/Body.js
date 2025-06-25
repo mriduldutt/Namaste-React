@@ -3,13 +3,23 @@ import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRestrauntList, setRestrauntList } from "../utils/restrauntSlice";
+import { fetchThunkData } from "../utils/restrauntSlice_thunk";
 
 const Body = () => {
   // Local State Variable - Super Powerful Variable
-  const [listofRestraunts, setListofRestraunts] = useState([]);
   const [filteredRestraunts, setFilteredRestraunts] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+  
+  // Dispatching an action 
+  const dispatch = useDispatch();
+  const setListofRestrauntss = useSelector((store) => store.restraunts.list);
+  const shimmer = useSelector((store) => store.restraunts.isloading);
+  //console.log(setListofRestrauntss);
+  console.log("shimmer", shimmer);
+
 
   // Higher order Component take a component and returns a new component
   const RestrauntCardVeg = withVegLabel(RestaurantCard);
@@ -25,7 +35,11 @@ const Body = () => {
 
   // console.log("listofRestraunts", listofRestraunts);
   useEffect(() => {
-    fetchData();
+    // dispatch(fetchRestrauntList());
+    // fetchData();
+     dispatch(fetchThunkData());
+    setFilteredRestraunts(setListofRestrauntss);
+    // setListofRestraunts(setListofRestrauntss);
   }, []);
 
   const fetchData = async () => {
@@ -35,12 +49,16 @@ const Body = () => {
 
     const json = await data.json();
     // console.log(json);
-    setListofRestraunts(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    // setListofRestraunts(
+    //   json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
+
     setFilteredRestraunts(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
+
+    // dispatch(setRestrauntList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants));
   };
 
   // Conditional Rendering - it will show because aPI getting time to fetch data
@@ -64,13 +82,13 @@ const Body = () => {
   //SearchText
   const BtnSearch = () => {
     console.log(searchText);
-    const filteredRestraunts = listofRestraunts.filter((resData) =>
+    const filteredRestraunts = setListofRestrauntss.filter((resData) =>
       resData.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredRestraunts(filteredRestraunts);
   };
 
-  return listofRestraunts.length === 0 ? (
+  return setListofRestrauntss.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">

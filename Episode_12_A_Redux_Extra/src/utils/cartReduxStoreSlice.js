@@ -40,7 +40,6 @@ const cartReduxStoreSlice = createSlice({
             // return {items: []};
         }
     }
-
 });
 
 // {

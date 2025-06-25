@@ -9,7 +9,7 @@ const CategoriesItemList = (props) => {
   const dispatch = useDispatch();
   const handleAddItem = (item) => {
     //Dispatch an action (action.payload)
-       dispatch(addItem(item));
+       dispatch(addItem(item.card.info));
   }
 
   return (
