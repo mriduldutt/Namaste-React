@@ -5,6 +5,7 @@ import { act } from "react-dom/test-utils";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 
+//mock fetch function
 global.fetch = jest.fn(() => {
     return Promise.resolve({
         json: () =>{
@@ -12,7 +13,6 @@ global.fetch = jest.fn(() => {
         } 
     })
 });
-
 
 
 it('should search reslist for Pizza input value', async () => {

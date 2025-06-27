@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RestaurantCard, { withVegLabel } from "./RestaurantCard";
+import RestaurantCard, { WithVegLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -13,7 +13,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   // Higher order Component take a component and returns a new component
-  const RestrauntCardVeg = withVegLabel(RestaurantCard);
+  const RestrauntCardVeg = WithVegLabel(RestaurantCard);
 
   // Filter logic
   const filterlogic = () => {

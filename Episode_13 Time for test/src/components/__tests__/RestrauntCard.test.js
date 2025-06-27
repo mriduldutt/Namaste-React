@@ -1,5 +1,5 @@
 import { render,screen } from "@testing-library/react";
-import RestaurantCard from "../RestaurantCard";
+import RestaurantCard, { WithVegLabel } from "../RestaurantCard";
 import MOCK_DATA from "../mocks/resCardMock.json";
 import "@testing-library/jest-dom";
 
@@ -18,9 +18,11 @@ test('should render RestrauntCard Component with props Data', () => {
 // test('should render RestrauntCard Component with Veg Label', () => {
 //     //test HOC : with Veg Label
 
-//     render(<withVegLabel resData ={MOCK_DATA}/>);
+//      render(<WithVegLabel resData ={MOCK_DATA}/>);
 
-//     const vegLabel = screen.getByText("Veg Only");
+//      const vegLabel = screen.getByTestId('veg-label');
 
-//     expect(vegLabel).toBeInTheDocument();
+//      console.log(vegLabel);
+
+//      expect(vegLabel).toBeInTheDocument();
 // })

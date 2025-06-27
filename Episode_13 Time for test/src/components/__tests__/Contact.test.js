@@ -36,10 +36,12 @@ describe('Contact Component', () => {
     test('should load button Contact us Component', () => {
         render(<Contact/>);
     
+        const submit = screen.getByText('Submit');
         const buton = screen.getByRole('button');
     
         
         //Assertion
+        expect(submit).toBeInTheDocument();
         expect(buton).toBeInTheDocument();
     });
     
@@ -56,14 +58,14 @@ describe('Contact Component', () => {
     
     
     
-    test('should load  2 input box Contact us Component', () => {
+    it('should load  2 input box Contact us Component', () => {
         render(<Contact/>);
         
         //Querying
-        const inputBoxes = screen.getAllByRole('textbox');
+        // const inputBoxes = screen.getAllByRole('textbox');
     
         //Assertion
-        expect(inputBoxes.length).not.toBe(3);
+        expect(screen.getAllByRole('textbox').length).not.toBe(3);
     });
     
 })

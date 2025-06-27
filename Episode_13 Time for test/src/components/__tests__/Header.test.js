@@ -1,7 +1,7 @@
 import Header from "../Header";
 import { Provider } from "react-redux";
 import appReduxStore from "../../utils/appReduxStore";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen,renderWithProviders } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
 
@@ -16,6 +16,8 @@ test("should render Header Component with login button", () => {
       </Provider>
     </BrowserRouter>
   );
+
+  // renderWithProviders(<Header />);
 
   //querying
  // const loginBtn =  screen.getByRole("button", { name: "Sign-Up / Login" });
